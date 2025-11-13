@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Generator</title>
+</head>
+<body>
+    <canvas id="canvas" width="32" height="32" style="border: 1px solid #ccc;"></canvas>
+    <br>
+    <canvas id="canvas16" width="16" height="16" style="border: 1px solid #ccc;"></canvas>
+    <script>
+        // 32x32 favicon
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Background circle
+        ctx.fillStyle = '#0f1211';
+        ctx.beginPath();
+        ctx.arc(16, 16, 14, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        // Border
+        ctx.strokeStyle = '#78fcd6';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        
+        // Text
+        ctx.font = 'bold 12px system-ui, -apple-system, sans-serif';
+        ctx.fillStyle = '#78fcd6';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('RM', 16, 16);
+        
+        // 16x16 favicon
+        const canvas16 = document.getElementById('canvas16');
+        const ctx16 = canvas16.getContext('2d');
+        
+        // Background circle
+        ctx16.fillStyle = '#0f1211';
+        ctx16.beginPath();
+        ctx16.arc(8, 8, 7, 0, 2 * Math.PI);
+        ctx16.fill();
+        
+        // Border
+        ctx16.strokeStyle = '#78fcd6';
+        ctx16.lineWidth = 0.5;
+        ctx16.stroke();
+        
+        // Text
+        ctx16.font = 'bold 6px system-ui, -apple-system, sans-serif';
+        ctx16.fillStyle = '#78fcd6';
+        ctx16.textAlign = 'center';
+        ctx16.textBaseline = 'middle';
+        ctx16.fillText('RM', 8, 8);
+        
+        // Convert to base64 and log for download
+        setTimeout(() => {
+            console.log('32x32 PNG:', canvas.toDataURL('image/png'));
+            console.log('16x16 PNG:', canvas16.toDataURL('image/png'));
+        }, 100);
+    </script>
+</body>
+</html>
